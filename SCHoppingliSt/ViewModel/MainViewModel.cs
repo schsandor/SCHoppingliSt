@@ -1,27 +1,83 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Maui.Core.Extensions;
 
 namespace SCHoppingliSt.ViewModel
 {
     public partial class MainViewModel : BaseViewModel
     {
-        
+        [ObservableProperty]
+        ObservableCollection<ShopOverview> shopOverviews = new();
 
         public MainViewModel()
         {
-            Title = "SCHoppingliSt";
+            Task.Run(async () =>
+            {
+                await GetShops();
+            }
+            );
 
-            //This should be the main page with a collectionview of the stores from the database.
+            //TODO:
+            //A collectionview of the shops from the database.
+            //A button at the bottom of the page to add a new shop
+            //long press on a shop to edit it
         }
 
+        public async Task GetShops()
+        {
+            var temp = await GetAllShops();
+            if (temp != null) 
+            {
+                Trace.WriteLine($"{ShopOverviews.Count}");
+                ShopOverviews.Clear();
+                Trace.WriteLine($"{ShopOverviews.Count}");
+                await Task.Delay(500);
+                ShopOverviews = temp.ToObservableCollection();
+                Trace.WriteLine($"{ShopOverviews.Count}");
+            }
+        }
+
+
+
+        //[RelayCommand]
+        //async Task CreateShop(string shop)
+        //{
+        //    if (!string.IsNullOrEmpty(shop))
+        //    {
+        //        await GetShops();
+        //        if (!ShopOverviews.Any(c => c.ShopName == shop))
+        //        {
+        //            ShopOverview newShop = new()
+        //            {
+        //                ShopName = shop,
+        //                ItemsOnlist = 0,
+        //                LocationCounter = 0,
+        //                Icon = shop.Substring(0, 1).ToUpperInvariant()
+        //            };
+        //            LiteDBService dataService = new();
+        //            var list = await dataService.SetShop(newShop, false);
+        //        }
+        //        else
+        //        {
+        //            //Error, shop already exists
+        //            await ShowToast($"{shop} shop already exists");
+        //        }
+        //    }
+        //}
 
         [RelayCommand]
-        async Task CreateStore(string name)
+        async Task GoToShopPageAsync(ShopOverview shopOverview)
         {
+            if (shopOverview.ShopName is null) return;
+            Trace.WriteLine($"Opening {shopOverview.ShopName} page");
 
+            //Todo
+            await Shell.Current.GoToAsync($"{nameof(ShopPage)}", true,
+                new Dictionary<string, object>()
+                {
+                    ["ShopOverview"] = shopOverview,
+                });
         }
+
+
+
     }
 }

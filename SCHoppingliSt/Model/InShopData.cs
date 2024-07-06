@@ -1,22 +1,22 @@
 ﻿namespace SCHoppingliSt.Model
 {
-    public partial class ItemInStore : ObservableObject
+    public partial class InShopData : ObservableObject
     {
 
-        public string StoreName { get; set; }
+        public string ShopName { get; set; }
 
         //ezt csak egyszerűen növeljük mindig meg eggyel, amikor felraktuk a listára vagy amikor kipipáltuk a listán
         public int PopularityCounter { get; set; }
 
-        double locationInStore;
+        double locationInShop;
 
         //figyelni kéne, hogy az adott boltban éppen milyen sorrendben vesszük meg a dolgokat, és ezt a számot arányosan hozzáadni ezzel.
         //((newNumberOfElements - 1 )/ x ) * oldAverage + ( 1 / newNumberOfElements) * newElement
-        public double LocationInStore
+        public double LocationInShop
         {
-            get { return locationInStore; }
+            get { return locationInShop; }
 
-            set { locationInStore = ((PopularityCounter - 1) / PopularityCounter) * locationInStore + (1 / PopularityCounter) * value; }
+            set { locationInShop = ((PopularityCounter - 1) / PopularityCounter) * locationInShop + (1 / PopularityCounter) * value; }
         }
 
 

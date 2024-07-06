@@ -61,11 +61,137 @@ namespace SCHoppingliSt.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Itt hozhatsz létre új boltot.
+        ///   Looks up a localized string similar to SCHoppingliSt.
         /// </summary>
-        public static string CreateStorePlaceholder {
+        public static string AppTitle {
             get {
-                return ResourceManager.GetString("CreateStorePlaceholder", resourceCulture);
+                return ResourceManager.GetString("AppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Új bolt.
+        /// </summary>
+        public static string CreateShopButton {
+            get {
+                return ResourceManager.GetString("CreateShopButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Itt nevezheted el az új boltot.
+        /// </summary>
+        public static string CreateShopPlaceholder {
+            get {
+                return ResourceManager.GetString("CreateShopPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bolt szerkesztése.
+        /// </summary>
+        public static string EditShopPageTitle {
+            get {
+                return ResourceManager.GetString("EditShopPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Az ikon egyetlen karakter vagy emoji lehet.
+        /// </summary>
+        public static string IconTooLongError {
+            get {
+                return ResourceManager.GetString("IconTooLongError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Még nem nyitottál egy boltot sem..
+        /// </summary>
+        public static string MainPageEmptyText {
+            get {
+                return ResourceManager.GetString("MainPageEmptyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nem.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bolt ikonja.
+        /// </summary>
+        public static string ShopIconLabel {
+            get {
+                return ResourceManager.GetString("ShopIconLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Válassz egy betűt vagy egy emojit.
+        /// </summary>
+        public static string ShopIconPlaceholder {
+            get {
+                return ResourceManager.GetString("ShopIconPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Már létezik ilyen nevű bolt!.
+        /// </summary>
+        public static string ShopNameAlreadyExistsAlertMessage {
+            get {
+                return ResourceManager.GetString("ShopNameAlreadyExistsAlertMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Felülírjuk a már létező boltot?.
+        /// </summary>
+        public static string ShopNameAlreadyExistsAlertQuestion {
+            get {
+                return ResourceManager.GetString("ShopNameAlreadyExistsAlertQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A bolt neve nem lehet üres!.
+        /// </summary>
+        public static string ShopNameEmptyError {
+            get {
+                return ResourceManager.GetString("ShopNameEmptyError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bolt neve.
+        /// </summary>
+        public static string ShopNameLabel {
+            get {
+                return ResourceManager.GetString("ShopNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bolt neve.
+        /// </summary>
+        public static string ShopNamePlaceholder {
+            get {
+                return ResourceManager.GetString("ShopNamePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Igen.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

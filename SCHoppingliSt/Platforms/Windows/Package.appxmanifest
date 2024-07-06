@@ -23,6 +23,8 @@
 
   <Resources>
     <Resource Language="hu-HU" />
+	<Resource Language="en-GB" />
+	<Resource Language="en-US" />
   </Resources>
 
   <Applications>

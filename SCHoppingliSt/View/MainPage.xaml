@@ -7,15 +7,66 @@
              x:DataType="viewmodel:MainViewModel"
              xmlns:model="clr-namespace:SCHoppingliSt.Model"
              xmlns:strings="clr-namespace:SCHoppingliSt.Resources"
-             Title="{Binding Title}">
+             Title="{x:Static strings:AppResources.AppTitle}">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Entry ReturnCommand="{Binding CreateStoreCommand}"
-                   Placeholder="{x:Static strings:AppResources.CreateStorePlaceholder}"/>
-        </VerticalStackLayout>
-    </ScrollView>
+        <Grid
+            Padding="15"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            RowDefinitions="*">            
+            <!--
+            <Entry 
+                x:Name="NewShopEntry"                
+                ReturnCommand="{Binding CreateShopCommand}"
+                ReturnCommandParameter="{Binding Source={x:Reference NewShopEntry}, Path=Text}"
+                Placeholder="{x:Static strings:AppResources.CreateShopPlaceholder}"/>
+            -->
+            <ScrollView Grid.Row="0"
+                        VerticalOptions="Fill"
+                        HorizontalOptions="Fill">
+                <CollectionView
+                    ItemsSource="{Binding ShopOverviews,UpdateSourceEventName=PropertyChanged}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:ShopOverview">
+                            <Frame
+                                BorderColor="{StaticResource Primary}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToShopPageCommand}"
+                                                            CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <HorizontalStackLayout>
+                                    <Label 
+                                        Text="{Binding Icon}"
+                                        FontSize="Header"/>
+                                    <Label>
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}{0} ({1})">
+                                                <Binding Path="ShopName" />
+                                                <Binding Path="ItemsOnlist"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                </HorizontalStackLayout>
 
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                    <CollectionView.EmptyView>
+                        <Label
+                            Padding="15"
+                            Text="{x:Static strings:AppResources.MainPageEmptyText}"/>
+                    </CollectionView.EmptyView>
+
+            </CollectionView>
+            </ScrollView>
+            <Button
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Text="{x:Static strings:AppResources.CreateShopButton}"
+                Command="{Binding GoToEditShopPageCommand}"
+                Grid.Row="0"/>
+
+        </Grid>
 </ContentPage>

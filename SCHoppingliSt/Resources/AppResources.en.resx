@@ -121,45 +121,45 @@
     <value>SCHoppingliSt</value>
   </data>
   <data name="CreateShopButton" xml:space="preserve">
-    <value>Új bolt</value>
+    <value>New shop</value>
   </data>
   <data name="CreateShopPlaceholder" xml:space="preserve">
-    <value>Itt nevezheted el az új boltot</value>
+    <value>Here you can name your new shop</value>
   </data>
   <data name="EditShopPageTitle" xml:space="preserve">
-    <value>Bolt szerkesztése</value>
+    <value>Edit shop</value>
   </data>
   <data name="IconTooLongError" xml:space="preserve">
-    <value>Az ikon egyetlen karakter vagy emoji lehet</value>
+    <value>The icon can only be a single character or an emoji</value>
   </data>
   <data name="MainPageEmptyText" xml:space="preserve">
-    <value>Még nem nyitottál egy boltot sem.</value>
+    <value>You are yet to open a shop.</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>Nem</value>
+    <value>No</value>
   </data>
   <data name="ShopIconLabel" xml:space="preserve">
-    <value>Bolt ikonja</value>
+    <value>Icon of the shop</value>
   </data>
   <data name="ShopIconPlaceholder" xml:space="preserve">
-    <value>Válassz egy betűt vagy egy emojit</value>
+    <value>Select a letter or an emoji</value>
   </data>
   <data name="ShopNameAlreadyExistsAlertMessage" xml:space="preserve">
-    <value>Már létezik ilyen nevű bolt!</value>
+    <value>There is already a shop bearing this name!</value>
   </data>
   <data name="ShopNameAlreadyExistsAlertQuestion" xml:space="preserve">
-    <value>Felülírjuk a már létező boltot?</value>
+    <value>Overwrite existing shop?</value>
   </data>
   <data name="ShopNameEmptyError" xml:space="preserve">
-    <value>A bolt neve nem lehet üres!</value>
+    <value>The name of the shop can't be empty!</value>
   </data>
   <data name="ShopNameLabel" xml:space="preserve">
-    <value>Bolt neve</value>
+    <value>Name of the shop</value>
   </data>
   <data name="ShopNamePlaceholder" xml:space="preserve">
-    <value>Bolt neve</value>
+    <value>Name of the shop</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Igen</value>
+    <value>Yes</value>
   </data>
 </root>

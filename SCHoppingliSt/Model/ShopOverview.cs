@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiteDB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace SCHoppingliSt.Model
 {
-    public partial class StoreOverview : ObservableObject 
+    public partial class ShopOverview : ObservableObject 
     {
-        
-        public string StoreName { get; set; }
+        [BsonId]
+        public ObjectId Id { get; set; }
+
+        public string ShopName { get; set; }
+
+        public string Icon { get; set; }
 
         //amikor hozzáadunk vagy leveszünk egyet, akkor ezt is módosítsuk
         public int ItemsOnlist { get; set; }
