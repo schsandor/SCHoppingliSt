@@ -58,33 +58,7 @@ namespace SCHoppingliSt.ViewModel
         }
 
 
-        /// <summary>
-        /// Goes to the page where you can edit a given shop or create a new one.
-        /// </summary>
-        /// <param name="shopOverview">The existing shop to edit or an empty one for a new.</param>
-        /// <returns></returns>
-        [RelayCommand]
-        async Task GoToEditShopPageAsync(ShopOverview shopOverview)
-        {
-            if (shopOverview != null)
-            {
-                Trace.WriteLine($"Opening {shopOverview.ShopName} shop's details for editing");
-                            }
-            else
-            {
-                Trace.WriteLine($"Opening EditShopPage for a creating a new shop");
-                shopOverview = new()
-                {
-                    ShopName = ""
-                };
-            }
-            //Todo
-            await Shell.Current.GoToAsync($"{nameof(EditShopPage)}", true,
-                new Dictionary<string, object>()
-                {
-                    ["ShopOverview"] = shopOverview
-                });
-        }
+        
 
         /// <summary>
         /// Goes to the page where you can edit a given item or create a new one.

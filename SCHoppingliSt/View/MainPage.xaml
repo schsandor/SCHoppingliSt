@@ -14,35 +14,30 @@
             HorizontalOptions="Fill"
             VerticalOptions="Fill"
             RowDefinitions="*">            
-            <!--
-            <Entry 
-                x:Name="NewShopEntry"                
-                ReturnCommand="{Binding CreateShopCommand}"
-                ReturnCommandParameter="{Binding Source={x:Reference NewShopEntry}, Path=Text}"
-                Placeholder="{x:Static strings:AppResources.CreateShopPlaceholder}"/>
-            
-            -->
                 <CollectionView
+                    x:Name="collectionview"
                     ItemsSource="{Binding ShopOverviews,UpdateSourceEventName=PropertyChanged}"
                     SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:ShopOverview">
                             <Frame
+                                x:Name="frame"
                                 BorderColor="{StaticResource Primary}">
+                                <!--
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToShopPageCommand}"
                                                             CommandParameter="{Binding .}"/>
                                 </Frame.GestureRecognizers>
-                                <!--
+                                -->
                                 <Frame.Behaviors>
-                                <toolkit:TouchBehavior
+                            <toolkit:TouchBehavior
+                                    BindingContext="{Binding Source={x:Reference frame}, Path=BindingContext}"
                                     LongPressDuration="750"
-                                    LongPressCommand="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToEditShopPageCommand}"
+                                    LongPressCommand="{Binding Source={viewmodel:MainViewModel}, Path=GoToEditShopPageCommand}"
                                     LongPressCommandParameter="{Binding .}"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToShopPageCommand}"
+                                    Command="{Binding Source={viewmodel:MainViewModel}, Path=GoToShopPageCommand}"
                                     CommandParameter="{Binding .}"/>
                             </Frame.Behaviors>
-                                -->
                                 <HorizontalStackLayout>
                                     <Label 
                                         Text="{Binding Icon}"
@@ -51,7 +46,7 @@
                                         <Label.Text>
                                             <MultiBinding StringFormat="{}{0} ({1})">
                                                 <Binding Path="ShopName" />
-                                                <Binding Path="ItemsOnlist"/>
+                                                <Binding Path="ItemsOnList"/>
                                             </MultiBinding>
                                         </Label.Text>
                                     </Label>

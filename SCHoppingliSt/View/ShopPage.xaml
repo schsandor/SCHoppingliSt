@@ -8,6 +8,8 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:DataType="viewmodel:ShopViewModel"
              Title="{Binding Title}">
+    <Grid>
+        
     <VerticalStackLayout>
         <Label 
             Text="{x:Static strings:AppResources.ShopPageItemsOnListHeaderText}"
@@ -20,13 +22,18 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:ItemToBuy">
                     <Frame
+                        x:Name="listframe"
                         BorderColor="{StaticResource Primary}">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer 
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ShopViewModel}}, Path=PutInBasketCommand}"
-                                CommandParameter="{Binding .}"/>
-                        </Frame.GestureRecognizers>
-                        <HorizontalStackLayout>
+                            <Frame.Behaviors>
+                                <toolkit:TouchBehavior
+                                    BindingContext="{Binding Source={x:Reference listframe}, Path=BindingContext}"
+                                    LongPressDuration="750"
+                                    LongPressCommand="{Binding Source={viewmodel:ShopViewModel}, Path=GoToEditItemPageCommand}"
+                                    LongPressCommandParameter="{Binding .}"
+                                    Command="{Binding Source={viewmodel:ShopViewModel}, Path=PutInBasketCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Frame.Behaviors>
+                            <HorizontalStackLayout>
                         <Label 
                                         Text="{Binding Icon}"
                                         FontSize="Header"/>
@@ -60,13 +67,18 @@
                 <DataTemplate 
                     x:DataType="model:ItemToBuy">
                     <Frame
+                        x:Name="basketframe"
                         BorderColor="{StaticResource Primary}">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer 
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ShopViewModel}}, Path=PutBackOnShelfCommand}"
-                                CommandParameter="{Binding .}"/>
-                        </Frame.GestureRecognizers>
-                        <HorizontalStackLayout>
+                            <Frame.Behaviors>
+                                <toolkit:TouchBehavior                                 
+                                    BindingContext="{Binding Source={x:Reference basketframe}, Path=BindingContext}"
+                                    LongPressDuration="750"
+                                    LongPressCommand="{Binding Source={viewmodel:ShopViewModel}, Path=GoToEditItemPageCommand}"
+                                    LongPressCommandParameter="{Binding .}"
+                                    Command="{Binding Source={viewmodel:ShopViewModel}, Path=PutBackOnShelfCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Frame.Behaviors>
+                            <HorizontalStackLayout>
                             <Label 
                                 Text="{Binding Icon}"
                                 FontSize="Header"/>
@@ -85,4 +97,10 @@
 
         </CollectionView>
     </VerticalStackLayout>
+    <Button
+        HorizontalOptions="End"
+        VerticalOptions="End"
+        Text="{x:Static strings:AppResources.AddItemButton}"
+        Command="{Binding GoToAddItemToShopPageCommand}"/>
+    </Grid>
 </ContentPage>

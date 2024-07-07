@@ -59,8 +59,30 @@ namespace SCHoppingliSt.Services
             }
         }
 
-        //SetItemToBuy
-        public async Task<bool> SetItemToBuy(ItemToBuy itemToBuy, bool delete)
+        //Get all the items in a given store
+        public async Task<List<ItemToBuy>> GetAllTheItemsTheShopSells(string shopName)
+        {
+            string connectionString = await GetConnectionString();
+            List<ItemToBuy> templist = new();
+            if (string.IsNullOrEmpty(connectionString)) { return templist; }
+            else
+            {
+                using var db = new LiteDatabase(connectionString);
+                var query = db.GetCollection<ItemToBuy>(ItemCollectionName);
+                try
+                {
+                    var queryresult = query.Find(item => item.InShopDataList.Any(inshop => inshop.ShopName == shopName)).ToList();
+                }
+                catch (Exception e)
+                {
+                    Trace.WriteLine (e.ToString());
+                }
+                return templist;
+            }
+        }
+
+            //SetItemToBuy
+            public async Task<bool> SetItemToBuy(ItemToBuy itemToBuy, bool delete)
         {
             string connectionString = await GetConnectionString();
             if (string.IsNullOrEmpty(connectionString)) { return false; }
@@ -72,9 +94,6 @@ namespace SCHoppingliSt.Services
                     InShopDataList = itemToBuy.InShopDataList,
                 };
 
-                //TODO:
-                //create a separate function to check rename and create situations for possible overwrites
-                //change this to check for an existing Id instead of name!
                 using var db = new LiteDatabase(connectionString);
                 var query = db.GetCollection<ItemToBuy>(ItemCollectionName);
                 try
@@ -104,7 +123,6 @@ namespace SCHoppingliSt.Services
                 return true;
             }
         }
-
 
 
         /// <summary>
@@ -159,7 +177,7 @@ namespace SCHoppingliSt.Services
                 {
                     ShopName = shop.ShopName,
                     Icon = shop.Icon,
-                    ItemsOnlist = shop.ItemsOnlist,
+                    ItemsOnList = shop.ItemsOnList,
                     LocationCounter = shop.LocationCounter,
                 };
 

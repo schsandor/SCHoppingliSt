@@ -11,7 +11,7 @@ namespace SCHoppingliSt.ViewModel
     {
 
         [ObservableProperty]
-        ShopOverview shopOverview = new();
+        ShopOverview shopOverview;
 
         [ObservableProperty]
         List<ItemToBuy> itemsTheShopOffers = new();

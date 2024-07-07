@@ -61,6 +61,24 @@ namespace SCHoppingliSt.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Árucikk hozzáadása.
+        /// </summary>
+        public static string AddItemButton {
+            get {
+                return ResourceManager.GetString("AddItemButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Felírás a listára.
+        /// </summary>
+        public static string AddItemToShopPageTitle {
+            get {
+                return ResourceManager.GetString("AddItemToShopPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BeváSCHárlóliSta.
         /// </summary>
         public static string AppTitle {

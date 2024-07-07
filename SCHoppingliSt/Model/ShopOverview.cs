@@ -16,23 +16,25 @@ namespace SCHoppingliSt.Model
 
         public string Icon { get; set; }
 
+        private int itemsOnList = 0;
+
         //amikor hozzáadunk vagy leveszünk egyet, akkor ezt is módosítsuk
-        public int ItemsOnlist
+        public int ItemsOnList
         {
             get
             { 
-                return ItemsOnlist;
+                return itemsOnList;
             }
 
             set
             {
                 if (value < 0)
                 {
-                    ItemsOnlist = 0;
+                    itemsOnList = 0;
                 }
                 else
                 {
-                    ItemsOnlist = value;
+                    itemsOnList = value;
                 }
             }
         }

@@ -4,7 +4,7 @@
     public partial class EditShopViewModel : BaseViewModel
     {
         [ObservableProperty]
-        ShopOverview shopOverview = new();
+        ShopOverview shopOverview;
 
         [ObservableProperty]
         string name;
@@ -19,6 +19,11 @@
         //this should enable also permanent deleting of the shop
 
         public EditShopViewModel()
+        {
+            
+        }
+
+        partial void OnShopOverviewChanged(ShopOverview value)
         {
             if (ShopOverview != null)
             {

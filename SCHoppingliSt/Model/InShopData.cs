@@ -4,20 +4,22 @@
     {
         public string ShopName { get; set; }
 
+        private int popularityCounter;
+
         //ezt csak egyszerűen növeljük mindig meg eggyel, amikor felraktuk a listára vagy amikor kipipáltuk a listán
         public int PopularityCounter
         {
             get
-            { return PopularityCounter; }
+            { return popularityCounter; }
             set
             {
                 if (value < 0)
                 {
-                    PopularityCounter = 0;
+                    popularityCounter = 0;
                 }
                 else
                 {
-                    PopularityCounter = value;
+                    popularityCounter = value;
                 }
             }
         }
