@@ -2,11 +2,25 @@
 {
     public partial class InShopData : ObservableObject
     {
-
         public string ShopName { get; set; }
 
         //ezt csak egyszerűen növeljük mindig meg eggyel, amikor felraktuk a listára vagy amikor kipipáltuk a listán
-        public int PopularityCounter { get; set; }
+        public int PopularityCounter
+        {
+            get
+            { return PopularityCounter; }
+            set
+            {
+                if (value < 0)
+                {
+                    PopularityCounter = 0;
+                }
+                else
+                {
+                    PopularityCounter = value;
+                }
+            }
+        }
 
         double locationInShop;
 

@@ -22,7 +22,12 @@
         <Button
             HorizontalOptions="End"
             VerticalOptions="End"
-            Text="{x:Static strings:AppResources.CreateShopButton}"           
+            Text="{x:Static strings:AppResources.SaveShopButton}"           
             Command="{Binding CheckFormCommand}"/>
+        <Button
+            HorizontalOptions="Start"
+            VerticalOptions="End"
+            Text="{x:Static strings:AppResources.DeleteShopButton}"
+            Command="{Binding DeleteShopCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

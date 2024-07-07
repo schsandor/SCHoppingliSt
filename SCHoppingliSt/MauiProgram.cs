@@ -26,11 +26,11 @@ namespace SCHoppingliSt
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<MainPage>();
 
-            builder.Services.AddSingleton<ShopViewModel>();
-            builder.Services.AddSingleton<ShopPage>();
+            builder.Services.AddTransient<ShopViewModel>();
+            builder.Services.AddTransient<ShopPage>();
 
-            builder.Services.AddSingleton<EditShopViewModel>();
-            builder.Services.AddSingleton<EditShopPage>();
+            builder.Services.AddTransient<EditShopViewModel>();
+            builder.Services.AddTransient<EditShopPage>();
 
             var path = FileSystem.Current.AppDataDirectory;
             var fullPath = Path.Combine(path, "trace.log");

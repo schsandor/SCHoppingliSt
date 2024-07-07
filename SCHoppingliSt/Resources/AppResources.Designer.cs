@@ -61,7 +61,7 @@ namespace SCHoppingliSt.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SCHoppingliSt.
+        ///   Looks up a localized string similar to BeváSCHárlóliSta.
         /// </summary>
         public static string AppTitle {
             get {
@@ -70,7 +70,7 @@ namespace SCHoppingliSt.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Új bolt.
+        ///   Looks up a localized string similar to Új bolt nyitása.
         /// </summary>
         public static string CreateShopButton {
             get {
@@ -79,11 +79,29 @@ namespace SCHoppingliSt.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Itt nevezheted el az új boltot.
+        ///   Looks up a localized string similar to Az árukat nem, de a boltban tárolt pozícióikat elveszíted ezzel!.
         /// </summary>
-        public static string CreateShopPlaceholder {
+        public static string DeleteShopAlertMessage {
             get {
-                return ResourceManager.GetString("CreateShopPlaceholder", resourceCulture);
+                return ResourceManager.GetString("DeleteShopAlertMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valóban törölni szeretnéd ezt a boltot?.
+        /// </summary>
+        public static string DeleteShopAlertQuestion {
+            get {
+                return ResourceManager.GetString("DeleteShopAlertQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bolt törlése.
+        /// </summary>
+        public static string DeleteShopButton {
+            get {
+                return ResourceManager.GetString("DeleteShopButton", resourceCulture);
             }
         }
         
@@ -120,6 +138,15 @@ namespace SCHoppingliSt.Resources {
         public static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bolt mentése.
+        /// </summary>
+        public static string SaveShopButton {
+            get {
+                return ResourceManager.GetString("SaveShopButton", resourceCulture);
             }
         }
         
@@ -178,11 +205,47 @@ namespace SCHoppingliSt.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bolt neve.
+        ///   Looks up a localized string similar to Itt nevezheted el az új boltot.
         /// </summary>
         public static string ShopNamePlaceholder {
             get {
                 return ResourceManager.GetString("ShopNamePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A kosarad még üres.
+        /// </summary>
+        public static string ShopPageItemsInBasketEmptyText {
+            get {
+                return ResourceManager.GetString("ShopPageItemsInBasketEmptyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ezeket már a kosaradba raktad.
+        /// </summary>
+        public static string ShopPageItemsInBasketHeaderText {
+            get {
+                return ResourceManager.GetString("ShopPageItemsInBasketHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nincs szükséged semmire sem innen.
+        /// </summary>
+        public static string ShopPageItemsOnListEmptyText {
+            get {
+                return ResourceManager.GetString("ShopPageItemsOnListEmptyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BeváSCHárlóliStád.
+        /// </summary>
+        public static string ShopPageItemsOnListHeaderText {
+            get {
+                return ResourceManager.GetString("ShopPageItemsOnListHeaderText", resourceCulture);
             }
         }
         

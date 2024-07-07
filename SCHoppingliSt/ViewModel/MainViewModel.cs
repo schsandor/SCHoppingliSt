@@ -26,12 +26,9 @@ namespace SCHoppingliSt.ViewModel
             var temp = await GetAllShops();
             if (temp != null) 
             {
-                Trace.WriteLine($"{ShopOverviews.Count}");
                 ShopOverviews.Clear();
-                Trace.WriteLine($"{ShopOverviews.Count}");
-                await Task.Delay(500);
+                //await Task.Delay(500);
                 ShopOverviews = temp.ToObservableCollection();
-                Trace.WriteLine($"{ShopOverviews.Count}");
             }
         }
 
@@ -67,14 +64,20 @@ namespace SCHoppingliSt.ViewModel
         async Task GoToShopPageAsync(ShopOverview shopOverview)
         {
             if (shopOverview.ShopName is null) return;
-            Trace.WriteLine($"Opening {shopOverview.ShopName} page");
+            Trace.WriteLine($"Opening {shopOverview.ShopName} shop page");
 
             //Todo
-            await Shell.Current.GoToAsync($"{nameof(ShopPage)}", true,
-                new Dictionary<string, object>()
-                {
-                    ["ShopOverview"] = shopOverview,
-                });
+            var navigationParameter = new Dictionary<string, object>
+        {
+            {"ShopOverview", shopOverview}
+        };
+            await Shell.Current.GoToAsync($"{nameof(ShopPage)}", true, navigationParameter );
+
+            //await Shell.Current.GoToAsync($"{nameof(ShopPage)}", true,
+            //    new Dictionary<string, object>()
+            //    {
+            //        ["ShopOverview"] = shopOverview,
+            //    });
         }
 
 

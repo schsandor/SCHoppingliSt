@@ -12,7 +12,7 @@
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Trace.WriteLine("Onappearing");
+            Trace.WriteLine("MainPage appearing");
             MainViewModel viewModel = (MainViewModel)BindingContext;
             Task.Run(async () =>
             {

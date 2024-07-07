@@ -118,13 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppTitle" xml:space="preserve">
-    <value>SCHoppingliSt</value>
+    <value>BeváSCHárlóliSta</value>
   </data>
   <data name="CreateShopButton" xml:space="preserve">
-    <value>Új bolt</value>
+    <value>Új bolt nyitása</value>
   </data>
-  <data name="CreateShopPlaceholder" xml:space="preserve">
-    <value>Itt nevezheted el az új boltot</value>
+  <data name="DeleteShopAlertMessage" xml:space="preserve">
+    <value>Az árukat nem, de a boltban tárolt pozícióikat elveszíted ezzel!</value>
+  </data>
+  <data name="DeleteShopAlertQuestion" xml:space="preserve">
+    <value>Valóban törölni szeretnéd ezt a boltot?</value>
+  </data>
+  <data name="DeleteShopButton" xml:space="preserve">
+    <value>Bolt törlése</value>
   </data>
   <data name="EditShopPageTitle" xml:space="preserve">
     <value>Bolt szerkesztése</value>
@@ -137,6 +143,9 @@
   </data>
   <data name="No" xml:space="preserve">
     <value>Nem</value>
+  </data>
+  <data name="SaveShopButton" xml:space="preserve">
+    <value>Bolt mentése</value>
   </data>
   <data name="ShopIconLabel" xml:space="preserve">
     <value>Bolt ikonja</value>
@@ -157,7 +166,19 @@
     <value>Bolt neve</value>
   </data>
   <data name="ShopNamePlaceholder" xml:space="preserve">
-    <value>Bolt neve</value>
+    <value>Itt nevezheted el az új boltot</value>
+  </data>
+  <data name="ShopPageItemsInBasketEmptyText" xml:space="preserve">
+    <value>A kosarad még üres</value>
+  </data>
+  <data name="ShopPageItemsInBasketHeaderText" xml:space="preserve">
+    <value>Ezeket már a kosaradba raktad</value>
+  </data>
+  <data name="ShopPageItemsOnListEmptyText" xml:space="preserve">
+    <value>Nincs szükséged semmire sem innen</value>
+  </data>
+  <data name="ShopPageItemsOnListHeaderText" xml:space="preserve">
+    <value>BeváSCHárlóliStád</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Igen</value>

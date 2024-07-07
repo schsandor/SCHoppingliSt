@@ -69,7 +69,7 @@ namespace SCHoppingliSt.Services
                 ItemToBuy tempItemToBuy = new()
                 {
                     ItemName = itemToBuy.ItemName,
-                    ShopList = itemToBuy.ShopList,
+                    InShopDataList = itemToBuy.InShopDataList,
                 };
 
                 //TODO:
@@ -107,7 +107,10 @@ namespace SCHoppingliSt.Services
 
 
 
-        //GetShops
+        /// <summary>
+        /// Gets all the shop overviews from the database.
+        /// </summary>
+        /// <returns>A list of ShopOverview.</returns>
         public async Task<List<ShopOverview>> GetShops()
         {
             string connectionString = await GetConnectionString();
@@ -140,7 +143,12 @@ namespace SCHoppingliSt.Services
             }
         }
 
-        //SetShop
+        /// <summary>
+        /// Saves a shop to the database or deletes it. When saving it will overwrite the shop with the same name, so that should be checked beforehand.
+        /// </summary>
+        /// <param name="shop">The shop item to save or delete.</param>
+        /// <param name="delete">If true, itt will delete the shop, and also any references to it from the database.</param>
+        /// <returns>A bool.</returns>
         public async Task<bool> SetShop(ShopOverview shop, bool delete = false)
         {
             string connectionString = await GetConnectionString();
@@ -165,6 +173,17 @@ namespace SCHoppingliSt.Services
                         if (delete)
                         {
                             query.Delete(queryresult.Id);
+                            var itemquery = db.GetCollection<ItemToBuy>(ItemCollectionName);
+                            var itemlist = itemquery.Find(c => c.InShopDataList.Any(x => x.ShopName == tempShopOverview.ShopName)).ToList();
+                            if (itemlist != null && itemlist.Count > 0)
+                            {
+                                foreach (var item in itemlist)
+                                {
+                                    int index = item.InShopDataList.FindIndex(y => y.ShopName == tempShopOverview.ShopName);
+                                    item.InShopDataList.RemoveAt(index);
+                                    await SetItemToBuy(item, false);
+                                }
+                            }
                         }
                         else
                         {

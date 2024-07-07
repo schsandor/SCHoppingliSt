@@ -12,14 +12,14 @@ namespace SCHoppingliSt.Model
 
         public string Icon { get; set; }
 
-        public List<InShopData> ShopList { get; set; }
+        public List<InShopData> InShopDataList { get; set; }
 
         public async void ResetPopularityCounter(string shopname = "")
         {
             if (String.IsNullOrEmpty(shopname))
             {
                 //reset all shop counters
-                foreach (var item in ShopList)
+                foreach (var item in InShopDataList)
                 {
                     item.PopularityCounter = 0;
                 }
@@ -30,8 +30,8 @@ namespace SCHoppingliSt.Model
                 int index;
                 try
                 {
-                    index = ShopList.FindIndex(c => c.ShopName == shopname);
-                    ShopList[index].PopularityCounter = 0;
+                    index = InShopDataList.FindIndex(c => c.ShopName == shopname);
+                    InShopDataList[index].PopularityCounter = 0;
                 }
                 catch
                 {

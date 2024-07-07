@@ -121,10 +121,16 @@
     <value>SCHoppingliSt</value>
   </data>
   <data name="CreateShopButton" xml:space="preserve">
-    <value>New shop</value>
+    <value>Open new shop</value>
   </data>
-  <data name="CreateShopPlaceholder" xml:space="preserve">
-    <value>Here you can name your new shop</value>
+  <data name="DeleteShopAlertMessage" xml:space="preserve">
+    <value>You won't lose the items, but will lose their position in this store!</value>
+  </data>
+  <data name="DeleteShopAlertQuestion" xml:space="preserve">
+    <value>Do you really want to delete this shop?</value>
+  </data>
+  <data name="DeleteShopButton" xml:space="preserve">
+    <value>Bolt törlése</value>
   </data>
   <data name="EditShopPageTitle" xml:space="preserve">
     <value>Edit shop</value>
@@ -137,6 +143,9 @@
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
+  </data>
+  <data name="SaveShopButton" xml:space="preserve">
+    <value>Save shop</value>
   </data>
   <data name="ShopIconLabel" xml:space="preserve">
     <value>Icon of the shop</value>
@@ -157,7 +166,19 @@
     <value>Name of the shop</value>
   </data>
   <data name="ShopNamePlaceholder" xml:space="preserve">
-    <value>Name of the shop</value>
+    <value>Here you can name your new shop</value>
+  </data>
+  <data name="ShopPageItemsInBasketEmptyText" xml:space="preserve">
+    <value>Your basket is empty</value>
+  </data>
+  <data name="ShopPageItemsInBasketHeaderText" xml:space="preserve">
+    <value>Things already in your basket</value>
+  </data>
+  <data name="ShopPageItemsOnListEmptyText" xml:space="preserve">
+    <value>You require nothing from here</value>
+  </data>
+  <data name="ShopPageItemsOnListHeaderText" xml:space="preserve">
+    <value>Your SCHoppingliSt</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>

@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SCHoppingliSt.View.MainPage"
+             xmlns:model="clr-namespace:SCHoppingliSt.Model"
+             xmlns:strings="clr-namespace:SCHoppingliSt.Resources"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:viewmodel="clr-namespace:SCHoppingliSt.ViewModel"
              x:DataType="viewmodel:MainViewModel"
-             xmlns:model="clr-namespace:SCHoppingliSt.Model"
-             xmlns:strings="clr-namespace:SCHoppingliSt.Resources"
              Title="{x:Static strings:AppResources.AppTitle}">
 
         <Grid
@@ -20,12 +20,11 @@
                 ReturnCommand="{Binding CreateShopCommand}"
                 ReturnCommandParameter="{Binding Source={x:Reference NewShopEntry}, Path=Text}"
                 Placeholder="{x:Static strings:AppResources.CreateShopPlaceholder}"/>
+            
             -->
-            <ScrollView Grid.Row="0"
-                        VerticalOptions="Fill"
-                        HorizontalOptions="Fill">
                 <CollectionView
-                    ItemsSource="{Binding ShopOverviews,UpdateSourceEventName=PropertyChanged}">
+                    ItemsSource="{Binding ShopOverviews,UpdateSourceEventName=PropertyChanged}"
+                    SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:ShopOverview">
                             <Frame
@@ -34,6 +33,16 @@
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToShopPageCommand}"
                                                             CommandParameter="{Binding .}"/>
                                 </Frame.GestureRecognizers>
+                                <!--
+                                <Frame.Behaviors>
+                                <toolkit:TouchBehavior
+                                    LongPressDuration="750"
+                                    LongPressCommand="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToEditShopPageCommand}"
+                                    LongPressCommandParameter="{Binding .}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToShopPageCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Frame.Behaviors>
+                                -->
                                 <HorizontalStackLayout>
                                     <Label 
                                         Text="{Binding Icon}"
@@ -60,7 +69,7 @@
                     </CollectionView.EmptyView>
 
             </CollectionView>
-            </ScrollView>
+            
             <Button
                 HorizontalOptions="End"
                 VerticalOptions="End"

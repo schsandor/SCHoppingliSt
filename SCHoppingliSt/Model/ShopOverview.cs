@@ -17,7 +17,25 @@ namespace SCHoppingliSt.Model
         public string Icon { get; set; }
 
         //amikor hozzáadunk vagy leveszünk egyet, akkor ezt is módosítsuk
-        public int ItemsOnlist { get; set; }
+        public int ItemsOnlist
+        {
+            get
+            { 
+                return ItemsOnlist;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    ItemsOnlist = 0;
+                }
+                else
+                {
+                    ItemsOnlist = value;
+                }
+            }
+        }
 
         //egy számláló, amit nullázunk akkor, amikor nulla elem van a kosárban, és minden pipával eggyel növelünk, ezt használjuk a boltban a pozíciójának meghatározására
         public int LocationCounter { get; set; }

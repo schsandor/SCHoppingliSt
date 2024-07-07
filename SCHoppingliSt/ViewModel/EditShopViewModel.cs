@@ -1,7 +1,4 @@
-﻿using SCHoppingliSt.Resources;
-using SCHoppingliSt.Model;
-
-namespace SCHoppingliSt.ViewModel
+﻿namespace SCHoppingliSt.ViewModel
 {
     [QueryProperty(nameof(ShopOverview), nameof(ShopOverview))]
     public partial class EditShopViewModel : BaseViewModel
@@ -40,7 +37,7 @@ namespace SCHoppingliSt.ViewModel
                 return;
             }
             ShopOverview.ShopName = Name;
-            if (String.IsNullOrEmpty(Icon))
+            if (string.IsNullOrEmpty(Icon))
             {
                 Icon = ShopOverview.ShopName.Substring(0, 1).ToUpperInvariant();
             }
@@ -71,8 +68,19 @@ namespace SCHoppingliSt.ViewModel
                 }
             }
             LiteDBService dataService = new();
-            var list = await dataService.SetShop(shop, false);
+            var done = await dataService.SetShop(shop, false);
         }
 
+        [RelayCommand]
+        async Task DeleteShop(ShopOverview shop)
+        {
+            bool delete = false;
+            delete = await App.Current.MainPage.DisplayAlert(AppResources.DeleteShopAlertQuestion, AppResources.DeleteShopAlertMessage, AppResources.Yes, AppResources.No);
+            if (delete)
+            {
+                LiteDBService dataService = new();
+                var done = await dataService.SetShop(shop, true);
+            }
+        }
     }
 }
